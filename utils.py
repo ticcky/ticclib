@@ -1,3 +1,6 @@
+import sys
+
+
 def init_logging(logger_name):
     import logging
     # Setup logging.
@@ -42,3 +45,9 @@ def pdb_on_error():
             pdb.post_mortem(tb) # more
 
     sys.excepthook = info
+
+
+def set_kwargs(self, kwargs):
+    for arg, val in kwargs.iteritems():
+            if arg in self.__dict__:
+                setattr(self, arg, val)
